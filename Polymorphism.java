@@ -1,33 +1,37 @@
-
 public class Polymorphism {
     public static void main(String[] args) {
-        // Creating objects of both parent and child class
-        Parent parentObj = new Parent();
-        Child childObj = new Child();
+        Bank bank1 = new SBI();
+        Bank bank2 = new ICICI();
+        Bank bank3 = new AXIS();
 
-        // Calling the display method of Parent class using parentObj
-        parentObj.display();
-
-        // Calling the display method of Child class using childObj
-        childObj.display();
-
-        // Polymorphism: parent reference pointing to child object
-        Parent polymorphicObj = new Child();
-        polymorphicObj.display(); // Calls the display method of Child class
+        System.out.println("SBI Rate of Interest: " + bank1.getRateOfInterest());
+        System.out.println("ICICI Rate of Interest: " + bank2.getRateOfInterest());
+        System.out.println("AXIS Rate of Interest: " + bank3.getRateOfInterest());
+    }
+}
+class Bank {
+    float getRateOfInterest() {
+        return 0;
     }
 }
 
-// Parent class
-class Parent {
-    void display() {
-        System.out.println("This is the display method in the Parent class");
+class SBI extends Bank {
+    float getRateOfInterest() {
+        return 8.4f;
     }
 }
 
-// Child class inheriting from Parent
-class Child extends Parent {
-    // Method overriding
-    void display() {
-        System.out.println("This is the display method in the Child class");
+class ICICI extends Bank {
+    float getRateOfInterest() {
+        return 7.3f;
     }
 }
+
+class AXIS extends Bank {
+    float getRateOfInterest() {
+        return 9.7f;
+    }
+}
+
+
+
